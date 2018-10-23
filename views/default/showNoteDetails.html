@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Note</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body style="background-color:aqua; color: white">
+    {{if response.flash:}}
+    <div style="padding:20px;background-color:blueviolet">{{=response.flash}}</div>
+    {{pass}}
+    
+    <center>
+        {{if note:}}
+            <div style="padding:20px;background-color:tan; margin:10px">
+                <h3>{{=note.title}}</h3>
+                <p>{{=note.body}}</p>
+            </div>
+        {{pass}}
+    </center>
+</body>
+</html>

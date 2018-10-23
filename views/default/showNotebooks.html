@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Notebook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body style="background-color:aqua; color: white">
+    {{if response.flash:}}
+    <div style="padding:20px;background-color:blueviolet">{{=response.flash}}</div>
+    {{pass}}
+    
+    <center>
+        <a href="{{=URL('addNotebook')}}"><button>Add Notebook</button></a>
+        {{if notebooks:}}
+        {{for notebook in notebooks:}}
+            <div style="background-color:chocolate; margin-top: 10px; margin-bottom: 10px; padding: 10px;">
+                <p>{{=notebook.title}}</p>
+                <p><a href="{{=URL('showNotes', args=notebook.id)}}">See Notes</a>
+                     &nbsp; <a href="{{=URL('deleteNotebook', args=notebook.id)}}">Delete Notebook</a> 
+                     &nbsp; <a href="{{=URL('addNote', args=notebook.id)}}">Add Note</a>
+                     &nbsp; <a href="{{=URL('updateNotebook', args=notebook.id)}}">Update Notebook</a></p>
+            </div>
+        {{pass}}
+        {{else:}}
+            <div>No Notebooks added yet. Please <a href="{{=URL('addNotebook')}}"> add a notebook</a></div>
+        {{pass}}
+    </center>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Notebook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body style="background-color:aqua">
+    {{if response.flash:}}
+    <div style="padding:20px;background-color:blueviolet">{{=response.flash}}</div>
+    {{pass}}
+    <center>
+        <form action="" enctype="multipart/form-data" method="post">
+            <div>
+                <label for="title">Title</label><br>
+                <input type="text" name="title" value="{{=notebook.title}}">
+            </div>
+            <input type="hidden" name="_formname" value="notebook_update">
+            <input type="hidden" name="id" value="{{=notebook.id}}">
+            <div>
+                <button type="submit"> Update Notebook</button>
+            </div>
+        </form>
+        <br><br>
+        <a href="{{=URL('showNotebooks')}}">See All Notebooks</a>
+    </center>
+</body>
+</html>
